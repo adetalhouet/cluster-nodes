@@ -11,22 +11,20 @@ The network configuration of the VM is:
 * Adapter type: paravirtualized 
 * Adapter promiscuous mode: allow-all
 
-You can easily SSH into it using those credentials: <br>
+You can easily SSH into it using those credentials:
 ```vagrant/vagrant```
-<br>
 The VM is configured with 2048Mo of RAM.
 ##Usage
-A Vagrantfile is provided to easily create an Ubuntu environment containing openJDK and unzip. All you have to do is:<br>
+A Vagrantfile is provided to easily create an Ubuntu environment containing openJDK and unzip. All you have to do is:
 ```
 vagrant up
 ```
-<br>
-If you would like more than one VM, you can set the following environment variable (default is 1):<br>
+If you would like more than one VM, you can set the following environment variable (default is 1):
 ```
 export NUM_OF_NODES=4
 ```
 ##Exemple
-Let's say you want to spawn 3 VMs, all you have to do is: <br>
+Let's say you want to spawn 3 VMs, all you have to do is:
 ```
 export NUM_OF_NODES=3
 vagrant up
