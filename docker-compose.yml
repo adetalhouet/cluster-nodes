@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  odl-node:
+    image: ubuntu:trusty
+    container_name: cluster-node_odl-${NODE_NUMBER}
+    hostname: odl-${NODE_NUMBER}
+    privileged: true
+    tty: true
+    ports:
+        - 800${NODE_NUMBER}:8181
+    networks:
+      default:
+          ipv4_address: 192.168.51.15${NODE_NUMBER}
+    volumes:
+        - "./opendaylight:/root/opendaylight"
+        - "./scripts:/root/scripts"
+    entrypoint: nohup /root/scripts/setup_odl.sh > /root/setup_odl.log
+
+networks:
+    default:
+        external: 
+            name: odl-cluster-network
