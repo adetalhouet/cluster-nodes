@@ -12,6 +12,10 @@
 # The above copyright notice and this permission notice shall be included in
 # all copies or substantial portions of the Software.
 
+# This is the main script; it basically ensures you have an available OpenDaylight
+# distribution to deploy on the nodes, or will download it, and it will 
+# trigger vagrant or docker to build the cluster.
+
 SCRIPTS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ROOT="$( cd "$SCRIPTS" && cd .. && pwd)"
 

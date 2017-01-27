@@ -1,5 +1,22 @@
 #!/bin/bash
 
+# Copyright (c) 2017 Alexis de Talhouët
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# That script provisions the nodes by installing JDK-8. It installs the OpenDaylight distribution
+# under `$HOME/OpenDaylight`. It also configure the Shards of the OpenDaylight instance:
+# Shard configuration:
+# see (configure-cluster-ipdetect.sh)[https://github.com/opendaylight/integration-distribution/blob/release/boron-sr2/distribution-karaf/src/main/assembly/bin/configure-cluster-ipdetect.sh]
+
 SCRIPTS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source $SCRIPTS/config.properties
