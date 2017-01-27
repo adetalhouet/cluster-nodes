@@ -39,3 +39,9 @@ install_packages
 
 echo "Starting OpenDaylight" > $HOME/setup.prog
 start_odl
+
+# Let the container live.
+while [ 1 ];
+do
+  sleep 10
+done
