@@ -9,6 +9,7 @@ The VMs / Containers are configured through the _config.properties_ file.
     Default is `Boron-SR2`.
 * What features to install on startup? 
     Default are `odl-jolokia, odl-restconf, odl-mdsal-clustering`.
+
 ### Vagrant
 Virtual Machines are configured as follow:
 * Image: Trusty
@@ -24,6 +25,7 @@ Useful commands:
 ```
 # from the root folder containing the Vagranfile access the virtual machine
 vagrant ssh odl-1
+
 # if you can't access odl-2 or odl-3, export the configured number of nodes and retry
 export NUM_OF_NODES=3
 
