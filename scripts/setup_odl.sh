@@ -41,7 +41,7 @@ function start_odl {
     seed_nodes=""
     for i in $(seq $NUM_OF_NODES)
     do
-        seed_nodes+="192.168.51.15$i "
+        seed_nodes+="192.168.50.15$i "
     done
 
     # setup the cluster with all the nodes' IP address
@@ -57,7 +57,8 @@ install_packages
 echo "Starting OpenDaylight" > $HOME/setup.prog
 start_odl
 
-# Let the container live.
+# For the docker container, we have to let the container 
+# live else it will stop once the setup is ready
 while [ 1 ];
 do
   sleep 10

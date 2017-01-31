@@ -53,7 +53,9 @@ function setup_odl {
 
 function spwan_vms {
     env_banner
-    cd $ROOT && vagrant up
+    cd $ROOT
+    vagrant destroy -f
+    vagrant up
 }
 
 function spwan_containers {
@@ -61,7 +63,7 @@ function spwan_containers {
     # create docker network specific to ODL cluster
     if [ `docker network ls | grep -w odl-cluster-network | wc -l | xargs echo ` == 0 ]; then
         echo "Docker network for OpenDaylight don't exist - creating ..."
-        docker network create -o com.docker.network.bridge.enable_icc=true -o com.docker.network.bridge.enable_ip_masquerade=true --subnet 192.168.51.0/24 --gateway 192.168.51.1  odl-cluster-network
+        docker network create -o com.docker.network.bridge.enable_icc=true -o com.docker.network.bridge.enable_ip_masquerade=true --subnet 192.168.50.0/24 --gateway 192.168.50.1  odl-cluster-network
     fi
     
     # create all the containers
@@ -69,7 +71,7 @@ function spwan_containers {
     for ((i=1; i<=MAX; i++))
     do
         export NODE_NUMBER=$i
-        docker-compose -p cluster-node_odl-$i up -d
+        docker-compose -p cluster-node_odl-$i up
     done
 }
 

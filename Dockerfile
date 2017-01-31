@@ -10,23 +10,11 @@
 # The above copyright notice and this permission notice shall be included in
 # all copies or substantial portions of the Software.
 
-version: '2'
+FROM ubuntu:trusty
 
-services:
-  odl-node:
-    build: .
-    image: odl-node
-    container_name: cluster-node_odl-${NODE_NUMBER}
-    hostname: odl-${NODE_NUMBER}
-    privileged: true
-    stdin_open: true
-    tty: true
-    networks:
-      default:
-          ipv4_address: 192.168.50.15${NODE_NUMBER}
-    command: nohup /root/scripts/setup_odl.sh
+# As we can't mount folders through docker-compose without 
+# having them in sync with the host, we're using a 
+# Dockerfile to bypass this limitation
 
-networks:
-    default:
-        external: 
-            name: odl-cluster-network
+COPY opendaylight /root/opendaylight
+COPY scripts /root/scripts
