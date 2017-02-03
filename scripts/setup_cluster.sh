@@ -71,7 +71,8 @@ function spwan_containers {
     for ((i=1; i<=MAX; i++))
     do
         export NODE_NUMBER=$i
-        docker-compose -p cluster-node_odl-$i up
+        docker rm -f odl-$i
+        docker-compose -p odl-$i up -d
     done
 }
 
@@ -147,3 +148,4 @@ else
 fi
 
 end_banner
+

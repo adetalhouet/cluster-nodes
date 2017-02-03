@@ -16,7 +16,7 @@ services:
   odl-node:
     build: .
     image: odl-node
-    container_name: cluster-node_odl-${NODE_NUMBER}
+    container_name: odl-${NODE_NUMBER}
     hostname: odl-${NODE_NUMBER}
     privileged: true
     stdin_open: true
